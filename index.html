@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>bamb00 – local</title>
+  <style>
+    html,body { margin:0; height:100%; background:#000; color:#0f0; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    #video { position: fixed; inset: 0; }
+    #ui { position: fixed; inset: 0; pointer-events: none; }
+    #hud { position: absolute; left: 16px; bottom: 16px; display:flex; gap:12px; align-items:center; pointer-events: auto;}
+    #audio button, #info button { background:#0f0; color:#000; border:0; padding:8px 12px; cursor:pointer; font-weight:600; }
+    #progress { position: absolute; left: 16px; right: 16px; bottom: 56px; height:4px; background:#0a0; }
+    #progress span { display:block; height:100%; width:0%; background:#fff; }
+    #info { position:absolute; right:16px; top:16px; background:#020; padding:12px; max-width:440px; line-height:1.4; pointer-events:auto; }
+    body.hideInfo #info { display:none; }
+    .kbd { display:inline-block; border:1px solid #0f0; padding:2px 6px; margin:1px 2px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  </style>
+</head>
+<body>
+  <!-- Audio: point src to your soundtrack (mp3/ogg). -->
+  <audio id="soundtrack" src="./assets/track.mp3" preload="auto" crossorigin="anonymous"></audio>
+  <!-- Canvas parent required by bamb00.js -->
+  <div id="video"></div>
+
+  <!-- UI / Controls -->
+  <div id="ui">
+    <div id="info">
+      <p><strong>bamb00 local</strong></p>
+      <p>Click <em>Play</em> (or press <span class="kbd">Space</span>) to start audio + MIDI sync.</p>
+      <p>Controls: <span class="kbd">Q</span><span class="kbd">W</span><span class="kbd">E</span><span class="kbd">R</span> &nbsp; <span class="kbd">A</span><span class="kbd">S</span><span class="kbd">D</span><span class="kbd">F</span> &nbsp; <span class="kbd">Space</span></p>
+      <button>Close</button>
+    </div>
+    <div id="progress"><span></span></div>
+    <div id="hud">
+      <div id="audio"><button>Play / Pause</button></div>
+    </div>
+  </div>
+
+  <!-- Audio element MUST exist -->
+
+<!-- Scripts (order matters) -->
+<script src="./scripts/p5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="./scripts/midi-parser.min.js"></script>
+<script src="./scripts/midi-synchronizer.js"></script>
+
+<script src="./scripts/grid-config.js"></script>
+<script src="./scripts/main.js"></script>
+<script src="./scripts/bamb00.js"></script>
+
+</body>
+</html>
