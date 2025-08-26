@@ -1,0 +1,343 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	text-decoration: none;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizelegibility;
+	-moz-osx-font-smoothing: grayscale;
+	outline: 0;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+	overflow-x: hidden;
+	line-height: 1em;
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+input, textarea {
+	outline: 0;
+}
+
+img {
+	display: block;
+	object-fit: cover;
+	border: 0;
+}
+
+main, header, nav, section {
+	display: block;
+}
+
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+html {
+    height: 100%;
+  }
+  body {
+    background-color: #000;
+    min-width: 320px;
+    min-height: 400px;
+    position: relative;
+    height: 100%;
+  }
+  body,
+  button {
+    font-family: 'Roboto Mono', monospace;
+    color: #0f0;
+    font-size: 14px;
+    line-height: 1em;
+  }
+  a:hover {
+    color: #fff;
+  }
+  .noDesktop {
+    display: none;
+  }
+  nav,
+  footer,
+  #audio,
+  #progress {
+    position: absolute;
+    z-index: 1;
+    transition: opacity 0.4s ease;
+  }
+  body.noMove.hideInfo #audio,
+  body:not(.projectLoaded) #audio,
+  body.noMove.hideInfo #progress,
+  body:not(.projectLoaded) #progress {
+    opacity: 0;
+    pointer-events: none;
+  }
+  body.noMove.hideInfo nav,
+  body.noMove.hideInfo footer {
+    opacity: 0;
+    pointer-events: none;
+  }
+  nav,
+  footer,
+  #audio {
+    padding: 30px;
+  }
+  body.noMove.hideInfo {
+    cursor: none;
+  }
+  nav {
+    left: 0;
+    bottom: 0;
+  }
+  nav a {
+    display: inline-block;
+    margin-right: 5px;
+  }
+  footer {
+    right: 0;
+    bottom: 0;
+  }
+  footer svg {
+    display: block;
+    height: 40px;
+  }
+  footer svg:hover * {
+    fill: #fff;
+  }
+  button {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 0;
+    background: transparent;
+    font-size: 130%;
+    cursor: pointer;
+    padding: 10px;
+    margin: -10px;
+    letter-spacing: 0.5px;
+  }
+  button:hover {
+    color: #fff;
+  }
+  #info {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    z-index: 3;
+    transform: translateY(-50%);
+    width: 100%;
+    transition: opacity 0.4s ease;
+    margin-top: -20px;
+  }
+  #info h1 {
+    font-weight: 400;
+    font-size: 130%;
+  }
+  #info h1,
+  #info p {
+    max-width: 530px;
+    line-height: 1.5em;
+    padding: 10px 30px;
+    margin: 0 auto;
+    color: #fff;
+  }
+  #info p span {
+    display: inline-block;
+    border: 1px solid #fff;
+    line-height: 1em;
+    padding: 0 2px 2px;
+    min-width: 18px;
+    text-align: center;
+  }
+  #info a {
+    color: #0f0;
+  }
+  #info a:hover {
+    text-decoration: underline;
+  }
+  #info button {
+    margin-top: 20px;
+  }
+  body:not(.projectLoaded) {
+    cursor: wait;
+  }
+  body:not(.projectLoaded) #info button {
+    pointer-events: none;
+    color: #666;
+  }
+  body.hideInfo #info {
+    opacity: 0;
+    pointer-events: none;
+  }
+  #p5_loading {
+    position: absolute;
+    left: 23px;
+    top: 20px;
+    font-size: 0;
+    background: url('/assets/loader.gif') no-repeat left top;
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
+  }
+  #video {
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.4s ease 0.4s;
+  }
+  #video canvas {
+    width: 100%;
+    height: 100%;
+  }
+  body:not(.hideInfo) #video {
+    opacity: 0.4;
+  }
+  body:not(.projectLoaded) #video {
+    opacity: 0;
+  }
+  #progress {
+    left: calc( 100% - 130px);
+    top: 35px;
+    height: 2px;
+    background: #0f0;
+    width: 0px;
+    transition: width 0.4s ease, opacity 0.4s ease;
+  }
+  #progress span {
+    background-color: #fff;
+    display: block;
+    width: 0;
+    height: 100%;
+    box-shadow: 2px 0 #000;
+  }
+  #audio {
+    left: 0;
+    width: 100%;
+    top: 0;
+  }
+  #audio audio {
+    display: block;
+    pointer-events: none;
+    opacity: 0;
+    height: 0;
+  }
+  #audio button svg {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -2px;
+  }
+  #audio button .pause {
+    opacity: 0;
+  }
+  #audio button:after {
+    content: 'PLAY';
+  }
+  #audio button:hover svg * {
+    stroke: #fff;
+  }
+  body.playing #audio button .play {
+    opacity: 0;
+  }
+  body.playing #audio button .pause {
+    opacity: 1;
+  }
+  body.playing #audio button:after {
+    content: 'PAUSE';
+  }
+  body.playing #progress {
+    width: 100px;
+  }
+  @media (max-width: 800px), (max-height: 650px) {
+    .noDesktop {
+      display: block !important;
+    }
+    .noMobile {
+      display: none !important;
+    }
+    body {
+      font-size: 12px;
+    }
+    footer svg {
+      height: 30px;
+    }
+    #progress {
+      left: calc( 100% - 110px);
+      height: 1.5px;
+    }
+    body.playing #progress {
+      width: 80px;
+    }
+    #info {
+      margin-top: 0;
+    }
+    #info h1,
+    #info p {
+      line-height: 1.4em;
+      padding: 7px 30px;
+      max-width: 460px;
+    }
+    body:not(.hideInfo) #video {
+      opacity: 0;
+    }
+  }
+  @media (max-height: 530px), (max-width: 374px) {
+    body {
+      font-size: 10px;
+    }
+    nav,
+    footer,
+    #audio {
+      padding: 20px;
+    }
+    #info h1,
+    #info p {
+      padding: 5px 20px;
+      max-width: 375px;
+    }
+    #info p span {
+      padding: 1px 2px 2px;
+    }
+    #p5_loading {
+      position: absolute;
+      left: 13px;
+      top: 10px;
+      background-size: 40px;
+    }
+    #audio button svg {
+      width: 10px;
+      height: auto;
+    }
+    #progress {
+      left: calc( 100% - 80px);
+      top: 25px;
+      height: 1px;
+    }
+    body.playing #progress {
+      width: 60px;
+    }
+    footer svg {
+      height: 25px;
+    }
+  }
+  
